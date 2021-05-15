@@ -5,7 +5,7 @@ Proyecto desarrollado en el taller de Symfony 5
 
 ## Tabla de contenido
 - [Descripcion del proyecto](#Descripcion)
-- [Requerimientos](#requerimientos)
+- [Requerimientos](#requisitos)
 - [Instalación del proyecto](#Instalación)
 
 
