@@ -4,9 +4,9 @@ Proyecto desarrollado en el taller de Symfony 5
 
 
 ## Tabla de contenido
-- [Descripcion del proyecto](#Descripcion)
+- [Descripcion del proyecto](#descripcion)
 - [Requerimientos](#requisitos)
-- [Instalación del proyecto](#Instalación)
+- [Instalación del proyecto](#instalación)
 
 
 
@@ -41,7 +41,16 @@ Para el administrador, tiene la opción de generar un archivo PDF con las tareas
 ```
     git clone https://github.com/Rodrigo507/tallerfiec.git
 ```
-### 2 Paso(Configuración BD)
+***Para los siguientes pasos, aceder a la carpeta que se creo luego de descargar o clonar el proyecto "tallerfiec" ***
+### 2 Paso
+- Instalar dependencias 
+
+ ```bash
+composer install
+```
+
+
+### 3 Paso(Configuración BD)
 
 - Configurar acceso para la base de datos en el archivo **.env**
   ```
@@ -52,19 +61,11 @@ Para el administrador, tiene la opción de generar un archivo PDF con las tareas
   php bin/console doctrine:database:create
   ```
 
-
-### 3 Paso
-- Instalar dependencias 
-
- ```bash
-composer install
-```
-
-### 3 Levantar servidr
+### 4 Levantar servidr
   ```
   symfony server:start -d
   ```
-### 4 Acceder al proyecto
+### 5 Acceder al proyecto
 [localhost:8080](http://127.0.0.1:8000/)
 
 
