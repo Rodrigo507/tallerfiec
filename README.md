@@ -2,9 +2,10 @@
 Proyecto desarrollado en el taller de Symfony 5
 
 
+***Funcionando en PHP 7.4.14 y PHP 8.0.6***
 
 ## Tabla de contenido
-- [Descripción del proyecto](#descripcion)
+- [Descripción del proyecto](#descripción)
 - [Requerimientos](#requisitos)
 - [Instalación del proyecto](#instalación)
 
