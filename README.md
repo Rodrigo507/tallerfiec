@@ -42,7 +42,9 @@ Para el administrador, tiene la opción de generar un archivo PDF con las tareas
 ```
     git clone https://github.com/Rodrigo507/tallerfiec.git
 ```
-***Para los siguientes pasos, aceder a la carpeta que se creo luego de descargar o clonar el proyecto "tallerfiec" ***
+
+***Para los siguientes pasos, aceder a la carpeta que se creo luego de descargar o clonar el proyecto tallerfiec***
+
 ### 2 Paso
 - Instalar dependencias 
 
