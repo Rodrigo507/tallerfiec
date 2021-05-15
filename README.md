@@ -38,8 +38,9 @@ Para el administrador, tiene la opción de generar un archivo PDF con las tareas
  - **1 forma**. Dar clic en Code y luego en Donwload Zip
 
  - **2 forma.** Crear una carpeta, ingresar a git bash y ejecutar
-
+```
     git clone https://github.com/Rodrigo507/tallerfiec.git
+```
 ### 2 Paso(Configuración BD)
 
 - Configurar acceso para la base de datos en el archivo **.env**
