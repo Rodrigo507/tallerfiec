@@ -61,3 +61,11 @@ composer install
   ```
 ### 4 Acceder al proyecto
 [localhost:8080](http://127.0.0.1:8000/)
+
+
+## Author
+
+👤 **Rodrigo Gutierrez**
+
+* Twitter: [@RodrigoA507](https://twitter.com/RodrigoA507)
+* Github: [@Rodrigo507](https://github.com/Rodrigo507)
