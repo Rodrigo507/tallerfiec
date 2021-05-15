@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -45,6 +47,25 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=50)
      */
     private $apellido;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Tarea::class, mappedBy="userasing")
+     */
+    private $tareas;
+
+    /**
+     * @inheritDoc
+     */
+    public function __toString()
+    {
+       return $this->getNombrre()." ".$this->getApellido();
+    }
+
+
+    public function __construct()
+    {
+        $this->tareas = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -147,6 +168,36 @@ class User implements UserInterface
     public function setApellido(string $apellido): self
     {
         $this->apellido = $apellido;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Tarea[]
+     */
+    public function getTareas(): Collection
+    {
+        return $this->tareas;
+    }
+
+    public function addTarea(Tarea $tarea): self
+    {
+        if (!$this->tareas->contains($tarea)) {
+            $this->tareas[] = $tarea;
+            $tarea->setUserasing($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTarea(Tarea $tarea): self
+    {
+        if ($this->tareas->removeElement($tarea)) {
+            // set the owning side to null (unless already changed)
+            if ($tarea->getUserasing() === $this) {
+                $tarea->setUserasing(null);
+            }
+        }
 
         return $this;
     }

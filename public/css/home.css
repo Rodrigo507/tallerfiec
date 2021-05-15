@@ -1,0 +1,14 @@
+#mainDiv{
+    padding-top: 80px;
+}
+
+.checked {
+    color: orange;
+}
+.card{
+    margin: 3%;
+}
+.conteinermain{
+    display: flex;
+    flex-wrap: wrap;
+}
