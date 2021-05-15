@@ -67,5 +67,4 @@ composer install
 
 👤 **Rodrigo Gutierrez**
 
-* Twitter: [@RodrigoA507](https://twitter.com/RodrigoA507)
 * Github: [@Rodrigo507](https://github.com/Rodrigo507)
