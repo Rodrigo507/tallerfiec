@@ -35,9 +35,9 @@ Para el administrador, tiene la opción de generar un archivo PDF con las tareas
 
 ## Instalación
 ### 1 Paso(Descarga del proyecto)
-**1 forma**. Dar clic en Code y luego en Donwload Zip
+ - **1 forma**. Dar clic en Code y luego en Donwload Zip
 
-**2 forma.** Crear una carpeta, ingresar a git bash y ejecutar
+ - **2 forma.** Crear una carpeta, ingresar a git bash y ejecutar
 
     git clone https://github.com/Rodrigo507/tallerfiec.git
 ### 2 Paso(Configuración BD)
@@ -45,6 +45,10 @@ Para el administrador, tiene la opción de generar un archivo PDF con las tareas
 - Configurar acceso para la base de datos en el archivo **.env**
   ```
   DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=5.7"
+  ```
+- Crear base de datos
+  ```
+  php bin/console doctrine:database:create
   ```
 
 
