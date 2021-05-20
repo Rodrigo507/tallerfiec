@@ -47,6 +47,15 @@ class Tarea
      */
     private $userasing;
 
+    /**
+     * @inheritDoc
+     */
+    public function __construct()
+    {
+        $this->setEstado(true);
+    }
+
+
     public function getId(): ?int
     {
         return $this->id;

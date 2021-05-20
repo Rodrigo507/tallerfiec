@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Tarea;
 use phpDocumentor\Reflection\Types\This;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,8 +15,13 @@ class HomeController extends AbstractController
      */
     public function index(): Response
     {
+        $user = $this->getUser();
+        dump($user);
+        $tareas =$this->getDoctrine()->getRepository(Tarea::class)
+        ->findByUserCurrent($user);
         return $this->render('home/index.html.twig', [
             'controller_name' => 'FIEC',
+            'tareas'=>$tareas
         ]);
     }
 
