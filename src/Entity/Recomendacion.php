@@ -32,6 +32,15 @@ class Recomendacion
      */
     private $fecha;
 
+    /**
+     * @inheritDoc
+     */
+    public function __construct()
+    {
+        $this->setFecha(new \DateTime());
+    }
+
+
     public function getId(): ?int
     {
         return $this->id;

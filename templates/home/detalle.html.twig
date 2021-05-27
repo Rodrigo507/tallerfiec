@@ -3,13 +3,95 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <style>
+        .example-wrapper {
+            margin: 1em auto;
+            max-width: 800px;
+            width: 95%;
+            font: 18px/1.5 sans-serif;
+        }
 
-<div class="example-wrapper">
-    <h1>DETALLE! </h1>
-    <h1>Hola {{ nombre }}</h1>
-</div>
+        .example-wrapper code {
+            background: #F5F5F5;
+            padding: 2px 6px;
+        }
+    </style>
+
+    <div class="example-wrapper">
+        <h1>DETALLE! </h1>
+
+        {% if tarea %}
+
+
+            <div class="card">
+                <div class="card-header">
+                    <h6 class="card-subtitle mb-2 text-muted">
+                        {% if tarea.prioridad == 1 %}
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star "></span>
+                            <span class="fa fa-star "></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        {% elseif tarea.prioridad == 2 %}
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star "></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        {% elseif tarea.prioridad == 3 %}
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        {% elseif tarea.prioridad == 4 %}
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                        {% else %}
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                        {% endif %}</h6>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title"><b> {{ tarea.titulo }}</b></h5>
+                    <p class="card-text">{{ tarea.descripcion }}</p>
+                    {% if tarea.file %}
+                        <a target="_blank" href="{{ asset('uploads/documentos/') ~ tarea.file }}">Descargar archivo</a>
+                    {% else %}
+                        <p>No hay documentos</p>
+                    {% endif %}
+                </div>
+            </div>
+
+            {% if tarea.estado == true %}
+                <div id="terminado">
+                    <a  class="btn btn-success" onclick="Estado({{ tarea.id }})">Terminar</a>
+                </div>
+            {% else %}
+                <h1>Terminada</h1>
+            {% endif %}
+
+        {% else %}
+            <h1>NO EXISTE</h1>
+        {% endif %}
+
+
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', { callback: 'fos.Router.setData' }) }}"></script>
+    <script src="{{ asset('js/ajax-call.js') }}"></script>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 {% endblock %}

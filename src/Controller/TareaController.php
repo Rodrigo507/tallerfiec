@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
 /**
- * @Route("/tarea")
+ * @Route("/admin/tarea")
  */
 class TareaController extends AbstractController
 {

@@ -1,7 +1,5 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ parent() }} - Inicio{% endblock %}
-
 {% block body %}
     <style>
         .example-wrapper {
@@ -17,7 +15,7 @@
     </style>
 
     <div class="example-wrapper">
-        <h1>TAREAS ASIGNADAS</h1>
+        <h1>TAREAS terminadas</h1>
         <div class="conteinermain">
             {% for tarea in tareas %}
                 <div class="card" style="width: 18rem;">
@@ -67,4 +65,11 @@
             {% endfor %}
         </div>
     </div>
+
+
 {% endblock %}
+
+{% block title %}
+
+{% endblock %}
+
