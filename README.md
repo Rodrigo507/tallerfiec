@@ -59,12 +59,46 @@ composer install
   ```
   DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=5.7"
   ```
+  ### CONFIGURACION PARA EL SERVIDOR WEB
+  - Para el parametro contraseña se debe realizar un url encode
+  
+    ```
+    ejemplo: Contrase que asignamos a la base de datos ^.!O;@9m7Svvh.Cb
+    Resultado del url encode %5E.%21O%3B%409m7Svvh.Cb
+    DATABASE_URL="mysql://db_user:%5E.%21O%3B%409m7Svvh.Cb@127.0.0.1:3306/db_name?serverVersion=5.7"
+    ```
+ - Si perciste algun error relacionado a la base de datos luego de realizar el encode del password realizar el siguiente cambio
+   en el archivo:
+   ```
+    ./app/config/packages/doctrine.yaml
+    
+   ```
+   Tenía un parámetro de URL con el prefijo ** resolve **:
+   ```
+   doctrina:
+    dbal:
+        # (....)
+        url: '% env (resolve: DATABASE_URL)%'
+        
+   ```
+  Simplemente eliminando ese prefijo solucionó el problema.
+
+  Después de los cambios:
+  ```
+   doctrina:
+    dbal:
+        # (....)
+        url: '% env (DATABASE_URL)%'
+        
+  ```
+  
 - Crear base de datos
   ```
   php bin/console doctrine:database:create
   ```
-
-### 4 Levantar servidr
+  
+  
+### 4 Levantar servidor
   ```
   symfony server:start -d
   ```
@@ -77,3 +111,9 @@ composer install
 👤 **Rodrigo Gutierrez**
 
 * Github: [@Rodrigo507](https://github.com/Rodrigo507)
+
+## Demo
+* Web: [democruv.atwebpages.com](http://democruv.atwebpages.com/)
+- User: admin@admin.com
+- passwd: 123
+
