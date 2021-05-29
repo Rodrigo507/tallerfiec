@@ -66,8 +66,7 @@ composer install
     ejemplo: Contrase que asignamos a la base de datos ^.!O;@9m7Svvh.Cb
     Resultado del url encode %5E.%21O%3B%409m7Svvh.Cb
     DATABASE_URL="mysql://db_user:%5E.%21O%3B%409m7Svvh.Cb@127.0.0.1:3306/db_name?serverVersion=5.7"
-    
-   ```
+    ```
  - Si perciste algun error relacionado a la base de datos luego de realizar el encode del password realizar el siguiente cambio
    en el archivo:
    ```
