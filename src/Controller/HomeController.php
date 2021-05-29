@@ -89,7 +89,49 @@ class HomeController extends AbstractController
 
     }
 
+    /**
+     * @Route ("/download",name="download")
+     */
+    public function download(){
+        $em = $this->getDoctrine()->getRepository(Tarea::class);
+        $tareas = $em->tareasSinFinalizar();
 
+
+        //Creacion del PDF
+        $mpdf = new \Mpdf\Mpdf();
+
+        //Estructura
+        $html = '';
+        $html .= '<table border="1" cellspacing="0" cellspadding="0" width="100%">
+        <caption>Tareas por terminar</caption>
+                <thead>
+                    <tr>
+                        <th>Titulo</th>
+                        <th>Descripcion</th>
+                        <th>Prioridad</th>
+                        <th>Asignado</th>
+                    </tr>
+              </thead>
+               <tbody>';
+
+        foreach ($tareas as $value) {
+            $html .= '<tr align="center">
+                    <td>' . $value['titulo'] . '</td>
+                    <td>' . $value['descripcion'] . '</td>
+                    <td>' . $value['prioridad'] . '</td>
+                    <td>' . $value['nombrre'] . '</td>';
+
+        }
+        $html .= '</tbody></table>';
+
+        //Escritura del PDF
+
+
+        $mpdf->WriteHTML($html);
+
+        //Salida del pdf
+        $mpdf->Output("informe.pdf","D");
+    }
 
 
 }

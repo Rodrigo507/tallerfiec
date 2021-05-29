@@ -34,33 +34,15 @@ class TareaRepository extends ServiceEntityRepository
         return $query->getResult();
     }
 
-
-    // /**
-    //  * @return Tarea[] Returns an array of Tarea objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('t.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
+    public function tareasSinFinalizar():array{
+        $em = $this->getEntityManager();
+        $query = $em->createQuery('
+            SELECT t.titulo, t.descripcion, t.prioridad, userasing.nombrre
+            FROM App:Tarea t
+            JOIN t.userasing userasing
+            WHERE t.estado = true
+            ORDER BY t.prioridad DESC
+                    ');
+        return $query->getResult();
     }
-    */
-
-    /*
-    public function findOneBySomeField($value): ?Tarea
-    {
-        return $this->createQueryBuilder('t')
-            ->andWhere('t.exampleField = :val')
-            ->setParameter('val', $value)
-            ->getQuery()
-            ->getOneOrNullResult()
-        ;
-    }
-    */
 }

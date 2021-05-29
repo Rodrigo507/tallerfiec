@@ -61,47 +61,47 @@ class TareaController extends AbstractController
             }
 
 //            dump($userForm);
-            if ($userForm) {
-                $nombreUser = $userForm->getNombrre();
-                $apellidoUser = $userForm->getApellido();
-                $destinoUser = $userForm->getEmail();
-
-                $tituloTarea = $form->get('titulo')->getData();
-                $detalleTarea = $form->get('descripcion')->getData();
-                $prioridadTarea = $form->get('prioridad')->getData();
-
-                $email = (new Email())
-                    ->from('proyecto.symfony@gmail.com')
-                    ->to($destinoUser)
-                    ->subject("Nueva tarea asignada")
-                    ->html('
-                        <!DOCTYPE html>
-                        <html lang="en">
-                            <head>
-                                <meta charset="UTF-8">
-                                <meta http-equiv="X-UA-Compatible" content="IE=edge">
-                                <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                                <title>Document</title>
-                            </head>
-                           
-                            <body>
-                                <h3>Hola'.$nombreUser.' '.$apellidoUser.' </h3>
-                                <p>Tienes una nueva tarea asigada</p>
-                            
-                                <p>Titulo:'. $tituloTarea.  '</p>
-                                <p>Descripcion:'. $detalleTarea . '</p>
-                                <p>Tiene una prioridad: '. $prioridadTarea.  '</p>
-                            </body>
-                            </html>
-                    ');
-
-                try {
-                    $mailer->send($email);
-                } catch (TransportExceptionInterface $e) {
-
-                }
-
-            }
+//            if ($userForm) {
+//                $nombreUser = $userForm->getNombrre();
+//                $apellidoUser = $userForm->getApellido();
+//                $destinoUser = $userForm->getEmail();
+//
+//                $tituloTarea = $form->get('titulo')->getData();
+//                $detalleTarea = $form->get('descripcion')->getData();
+//                $prioridadTarea = $form->get('prioridad')->getData();
+//
+//                $email = (new Email())
+//                    ->from('proyecto.symfony@gmail.com')
+//                    ->to($destinoUser)
+//                    ->subject("Nueva tarea asignada")
+//                    ->html('
+//                        <!DOCTYPE html>
+//                        <html lang="en">
+//                            <head>
+//                                <meta charset="UTF-8">
+//                                <meta http-equiv="X-UA-Compatible" content="IE=edge">
+//                                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//                                <title>Document</title>
+//                            </head>
+//
+//                            <body>
+//                                <h3>Hola'.$nombreUser.' '.$apellidoUser.' </h3>
+//                                <p>Tienes una nueva tarea asigada</p>
+//
+//                                <p>Titulo:'. $tituloTarea.  '</p>
+//                                <p>Descripcion:'. $detalleTarea . '</p>
+//                                <p>Tiene una prioridad: '. $prioridadTarea.  '</p>
+//                            </body>
+//                            </html>
+//                    ');
+//
+//                try {
+//                    $mailer->send($email);
+//                } catch (TransportExceptionInterface $e) {
+//
+//                }
+//
+//            }
 
 
             $entityManager = $this->getDoctrine()->getManager();
